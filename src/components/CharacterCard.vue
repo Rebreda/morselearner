@@ -17,13 +17,14 @@
       </div>
     </v-card-text>
     <v-card-actions>
-      <v-btn text color="deep-purple accent-4"> Play Tone </v-btn>
+      <v-btn text color="deep-purple accent-4" @click="playTone">
+        Play Tone
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
-import * as Tone from "tone";
 export default {
   name: "CharacterCard",
   props: {
@@ -33,14 +34,22 @@ export default {
   },
   methods: {
     playTone() {
-      const osc = new Tone.Oscillator().toDestination();
-      // repeated event every 8th note
-      Tone.Transport.scheduleRepeat((time) => {
-        // use the callback time to schedule events
-        osc.start(time).stop(time + 0.1);
-      }, "8n");
-      // transport must be started before it starts invoking events
-      Tone.Transport.start();
+      // create a new synth
+      this.$Tone.Transport.stop();
+
+      let synth = new this.$Tone.Synth().toDestination();
+      // synth.triggerAttackRelease("G4", "4n");
+      const arr = this.pattern.split("");
+      let now = this.$Tone.now();
+      arr.forEach((s, index) => {
+        now += 1;
+        const note = s;
+        const duration = note === "-" ? "8n" : "32n";
+        console.log(duration, index, note);
+        synth.triggerAttackRelease("B3", duration, now);
+      });
+      console.log(this.$Tone.Transport);
+      this.$Tone.Transport.start();
     },
   },
 };

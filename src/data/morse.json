@@ -1,0 +1,182 @@
+{
+    "0": {
+        "pattern": "-----",
+        "type": "number"
+    },
+    "1": {
+        "pattern": ".----",
+        "type": "number"
+    },
+    "2": {
+        "pattern": "..---",
+        "type": "number"
+    },
+    "3": {
+        "pattern": "...--",
+        "type": "number"
+    },
+    "4": {
+        "pattern": "....-",
+        "type": "number"
+    },
+    "5": {
+        "pattern": ".....",
+        "type": "number"
+    },
+    "6": {
+        "pattern": "-....",
+        "type": "number"
+    },
+    "7": {
+        "pattern": "--...",
+        "type": "number"
+    },
+    "8": {
+        "pattern": "---..",
+        "type": "number"
+    },
+    "9": {
+        "pattern": "----.",
+        "type": "number"
+    },
+    "a": {
+        "pattern": ".-",
+        "type": "letter"
+    },
+    "b": {
+        "pattern": "-...",
+        "type": "letter"
+    },
+    "c": {
+        "pattern": "-.-.",
+        "type": "letter"
+    },
+    "d": {
+        "pattern": "-..",
+        "type": "letter"
+    },
+    "e": {
+        "pattern": ".",
+        "type": "letter"
+    },
+    "f": {
+        "pattern": "..-.",
+        "type": "letter"
+    },
+    "g": {
+        "pattern": "--.",
+        "type": "letter"
+    },
+    "h": {
+        "pattern": "....",
+        "type": "letter"
+    },
+    "i": {
+        "pattern": "..",
+        "type": "letter"
+    },
+    "j": {
+        "pattern": ".---",
+        "type": "letter"
+    },
+    "k": {
+        "pattern": "-.-",
+        "type": "letter"
+    },
+    "l": {
+        "pattern": ".-..",
+        "type": "letter"
+    },
+    "m": {
+        "pattern": "--",
+        "type": "letter"
+    },
+    "n": {
+        "pattern": "-.",
+        "type": "letter"
+    },
+    "o": {
+        "pattern": "---",
+        "type": "letter"
+    },
+    "p": {
+        "pattern": ".--.",
+        "type": "letter"
+    },
+    "q": {
+        "pattern": "--.-",
+        "type": "letter"
+    },
+    "r": {
+        "pattern": ".-.",
+        "type": "letter"
+    },
+    "s": {
+        "pattern": "...",
+        "type": "letter"
+    },
+    "t": {
+        "pattern": "-",
+        "type": "letter"
+    },
+    "u": {
+        "pattern": "..-",
+        "type": "letter"
+    },
+    "v": {
+        "pattern": "...-",
+        "type": "letter"
+    },
+    "w": {
+        "pattern": ".--",
+        "type": "letter"
+    },
+    "x": {
+        "pattern": "-..-",
+        "type": "letter"
+    },
+    "y": {
+        "pattern": "-.--",
+        "type": "letter"
+    },
+    "z": {
+        "pattern": "--..",
+        "type": "letter"
+    },
+    ".": {
+        "pattern": ".-.-.-",
+        "type": "punctuation"
+    },
+    ",": {
+        "pattern": "--..--",
+        "type": "punctuation"
+    },
+    "?": {
+        "pattern": "..--..",
+        "type": "punctuation"
+    },
+    "!": {
+        "pattern": "-.-.--",
+        "type": "punctuation"
+    },
+    "-": {
+        "pattern": "-....-",
+        "type": "punctuation"
+    },
+    "/": {
+        "pattern": "-..-.",
+        "type": "punctuation"
+    },
+    "@": {
+        "pattern": ".--.-.",
+        "type": "punctuation"
+    },
+    "(": {
+        "pattern": "-.--.",
+        "type": "punctuation"
+    },
+    ")": {
+        "pattern": "-.--.-",
+        "type": "punctuation"
+    }
+}

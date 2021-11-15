@@ -1,8 +1,14 @@
 <template>
   <div class="">
-    <div v-for="i in letters" :key="i">
-      <morse-letter :value="i" />
-    </div>
+    <v-container>
+      <div
+        class="board"
+        v-for="character in Object.entries(letters)"
+        :key="character[0]"
+      >
+        <morse-letter :value="character[0]" v-bind="character[1]" />
+      </div>
+    </v-container>
   </div>
 </template>
 
@@ -12,30 +18,32 @@ export default {
   components: { MorseLetter },
   name: "HelloWorld",
   props: {
-    msg: String,
+    letters: Object,
+  },
+  computed: {
+    characters() {
+      return Object.entries(this.letters);
+    },
+    cols() {
+      return Math.ceil(this.letters.length / 6);
+    },
+  },
+  created() {
+    console.log(this.letters);
   },
   data: function () {
-    return {
-      letters: ["A", "B", "C"],
-    };
+    return {};
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.board {
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 </style>

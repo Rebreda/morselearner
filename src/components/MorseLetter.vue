@@ -1,20 +1,35 @@
 <template>
-  <div class="letter">
-    <div class="text-h1">
-      {{ value }}
-    </div>
-    <button @click="playTone">Play tone</button>
-  </div>
+  <v-card class="mx-2 my-2 letter">
+    <v-card-text>
+      <div>
+        <v-chip class="ma-2" color="pink" label text-color="white">
+          <v-icon left> mdi-label </v-icon>
+          {{ type }}
+        </v-chip>
+      </div>
+      <div class="text-center">
+        <p class="text-h1 text--primary">
+          {{ value }}
+        </p>
+        <div class="text-h2 text--primary">
+          {{ pattern }}
+        </div>
+      </div>
+    </v-card-text>
+    <v-card-actions>
+      <v-btn text color="deep-purple accent-4"> Play Tone </v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
 import * as Tone from "tone";
-// import Tone from 'tone'
 export default {
-  name: "HelloWorld",
+  name: "MorseLetter",
   props: {
     value: String,
-    tonePattern: Array,
+    pattern: String,
+    type: String,
   },
   methods: {
     playTone() {
@@ -33,18 +48,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.letter {
+  min-width: 300px;
 }
 </style>

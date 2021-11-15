@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <v-main>
-      <LetterBoard :letters="alphabet" />
+      <character-board :letters="alphabet" />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import LetterBoard from "./components/LetterBoard";
+import CharacterBoard from "./components/CharacterBoard.vue";
 import morse from "./data/morse.json";
 
 export default {
@@ -18,7 +18,7 @@ export default {
     };
   },
   components: {
-    LetterBoard,
+    CharacterBoard,
   },
 };
 </script>

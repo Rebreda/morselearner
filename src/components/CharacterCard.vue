@@ -25,7 +25,7 @@
 <script>
 import * as Tone from "tone";
 export default {
-  name: "MorseLetter",
+  name: "CharacterCard",
   props: {
     value: String,
     pattern: String,

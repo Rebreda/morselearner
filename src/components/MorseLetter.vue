@@ -50,5 +50,7 @@ export default {
 <style scoped>
 .letter {
   min-width: 300px;
+  max-width: 400px;
+  flex: 1 1 auto;
 }
 </style>

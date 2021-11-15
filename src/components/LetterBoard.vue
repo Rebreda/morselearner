@@ -1,11 +1,7 @@
 <template>
   <div class="">
-    <v-container>
-      <div
-        class="board"
-        v-for="character in Object.entries(letters)"
-        :key="character[0]"
-      >
+    <v-container class="board">
+      <div v-for="character in Object.entries(letters)" :key="character[0]">
         <morse-letter :value="character[0]" v-bind="character[1]" />
       </div>
     </v-container>
@@ -28,9 +24,6 @@ export default {
       return Math.ceil(this.letters.length / 6);
     },
   },
-  created() {
-    console.log(this.letters);
-  },
   data: function () {
     return {};
   },
@@ -41,9 +34,10 @@ export default {
 <style scoped>
 .board {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
 }
 </style>

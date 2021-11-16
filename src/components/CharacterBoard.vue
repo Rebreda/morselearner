@@ -1,19 +1,27 @@
 <template>
-  <v-container class="">
-    <character-toggle v-on:change="handleToggle" />
-    <v-container class="board">
-      <div v-for="character in characters" :key="character[0]">
-        <character-card :value="character[0]" v-bind="character[1]" />
-      </div>
-    </v-container>
+  <v-container>
+    <v-row>
+      <character-board-filter @onFilter="handleToggle" />
+    </v-row>
+    <v-row>
+      <v-fade-transition class="board" group tag="div">
+        <template v-for="character in characters">
+          <character-card
+            :value="character[0]"
+            v-bind="character[1]"
+            :key="character[0]"
+          />
+        </template>
+      </v-fade-transition>
+    </v-row>
   </v-container>
 </template>
 
 <script>
+import CharacterBoardFilter from "./CharacterBoardFilter.vue";
 import CharacterCard from "./CharacterCard.vue";
-import CharacterToggle from "./CharacterToggle.vue";
 export default {
-  components: { CharacterCard, CharacterToggle },
+  components: { CharacterCard, CharacterBoardFilter },
   name: "CharacterBoard",
   props: {
     letters: Object,
@@ -38,6 +46,7 @@ export default {
         return this.filterType[s];
       });
     },
+    handleSearch() {},
   },
   data: function () {
     return {

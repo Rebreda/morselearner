@@ -13,9 +13,20 @@
         </div>
       </v-card-text>
       <v-card-actions>
-        <v-btn text color="deep-purple accent-4" @click="playTone">
-          <v-icon> mdi-play-circle </v-icon>
-          Play Tone
+        <v-btn
+          text
+          color="deep-purple accent-4"
+          @click="playTone"
+          :disabled="isPlaying"
+        >
+          <span v-if="!isPlaying">
+            <v-icon> mdi-play-circle </v-icon>
+            Play Tone
+          </span>
+          <span v-else>
+            <v-icon> mdi-play-speaker </v-icon>
+            Playing
+          </span>
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -23,6 +34,8 @@
 </template>
 
 <script>
+import * as Tone from "tone";
+
 export default {
   name: "CharacterCard",
   props: {
@@ -30,19 +43,36 @@ export default {
     pattern: String,
     type: String,
   },
+  data: () => {
+    return {
+      isPlaying: false,
+    };
+  },
   methods: {
     playTone() {
       // create a new synth
-      this.$Tone.Transport.stop();
-      let synth = new this.$Tone.Synth().toDestination();
+      this.isPlaying = true;
+      let synth = new Tone.Synth().toDestination();
       const arr = this.pattern.split("");
-      let now = this.$Tone.now();
-      arr.forEach((note) => {
-        now += 1;
-        const duration = note === "-" ? "8n" : "32n";
-        synth.triggerAttackRelease("B3", duration, now);
+      // let counter = 0;
+      const mapped = arr.map((char, index) => {
+        const duration = char === "-" ? "3t" : "1t";
+        const sound = char === "-" ? "G4" : "B2";
+        // counter += duration;
+        return { time: index, duration, note: sound };
       });
-      this.$Tone.Transport.start();
+      console.log(mapped);
+      let c = 0;
+      // eslint-disable-next-line no-unused-vars
+      const seq = new Tone.Part((time, { note, duration }) => {
+        c += 1;
+        if (c === arr.length) {
+          this.isPlaying = false;
+          Tone.Transport.stop();
+        }
+        synth.triggerAttackRelease(note, duration);
+      }, mapped).start(0);
+      Tone.Transport.start();
     },
   },
 };

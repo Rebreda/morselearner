@@ -4,7 +4,7 @@
       <character-board-filter @onFilter="handleToggle" />
     </v-row>
     <v-row>
-      <v-fade-transition class="board" group tag="div">
+      <v-slide-x-transition class="board" group tag="div">
         <template v-for="character in characters">
           <character-card
             :value="character[0]"
@@ -12,7 +12,7 @@
             :key="character[0]"
           />
         </template>
-      </v-fade-transition>
+      </v-slide-x-transition>
     </v-row>
   </v-container>
 </template>

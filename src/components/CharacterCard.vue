@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     playTone() {
-      const DIT = 0.3;
+      const DIT = 0.1;
       const DAH = DIT * 3;
 
       this.isPlaying = true;
@@ -70,6 +70,7 @@ export default {
         if (c === arr.length) {
           this.isPlaying = false;
           Tone.Transport.stop();
+          seq.dispose();
         }
         synth.triggerAttackRelease("B3", duration, time);
       }, mapped).start(0);

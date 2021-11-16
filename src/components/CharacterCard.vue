@@ -50,27 +50,28 @@ export default {
   },
   methods: {
     playTone() {
-      // create a new synth
+      const DIT = 0.3;
+      const DAH = DIT * 3;
+
       this.isPlaying = true;
       let synth = new Tone.Synth().toDestination();
       const arr = this.pattern.split("");
-      // let counter = 0;
-      const mapped = arr.map((char, index) => {
-        const duration = char === "-" ? "3t" : "1t";
-        const sound = char === "-" ? "G4" : "B2";
-        // counter += duration;
-        return { time: index, duration, note: sound };
+      let counter = 0;
+      const mapped = arr.map((char) => {
+        counter += char === "-" ? DAH : DIT;
+        let t = { duration: char === "-" ? DAH : DIT, time: counter };
+        counter += DIT;
+        return t;
       });
-      console.log(mapped);
       let c = 0;
       // eslint-disable-next-line no-unused-vars
-      const seq = new Tone.Part((time, { note, duration }) => {
+      const seq = new Tone.Part((time, { duration, time: a }) => {
         c += 1;
         if (c === arr.length) {
           this.isPlaying = false;
           Tone.Transport.stop();
         }
-        synth.triggerAttackRelease(note, duration);
+        synth.triggerAttackRelease("B3", duration, time);
       }, mapped).start(0);
       Tone.Transport.start();
     },

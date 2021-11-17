@@ -2,27 +2,61 @@
   <div>
     <v-main>
       <v-container fluid>
-        <!-- If using vue-router -->
-        <character-board :letters="alphabet" />
+        <v-row class="prompt-row">
+          <v-card
+            disabled
+            hover
+            to="/challenge"
+            class="prompt text-center py-10 px-2 my-2"
+            max-width="400"
+            outlined
+          >
+            <v-icon size="72"> mdi-gamepad </v-icon>
+            <div class="mt-2 text-center">
+              <h5 class="text-h5">Game Mode</h5>
+            </div>
+            <v-card-text
+              >Learn by doing - get challenged by prompts of morse code. Make
+              mistakes, practice and have fun doing so.
+            </v-card-text>
+
+            <v-card-actions>
+              <v-btn outlined text class="mx-auto"> Play </v-btn>
+            </v-card-actions>
+          </v-card>
+
+          <v-card
+            hover
+            to="/review"
+            class="prompt text-center py-10 px-2 my-2"
+            max-width="400"
+            outlined
+          >
+            <v-icon size="72"> mdi-book-open-blank-variant </v-icon>
+            <div class="mt-2 text-center">
+              <h5 class="text-h5">Morse Code Alphabet</h5>
+            </div>
+            <v-card-text>
+              Quickly check out all symbols and patterns of morse code with
+              tones and easy to understand visuals.
+            </v-card-text>
+            <v-card-actions class="text-center">
+              <v-btn outlined text class="mx-auto"> Play </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-row>
       </v-container>
     </v-main>
   </div>
 </template>
 
 <script>
-import CharacterBoard from "../components/CharacterBoard.vue";
-import morse from "../data/morse.json";
-
 export default {
   name: "HomePage",
   data() {
-    return {
-      alphabet: morse,
-    };
+    return {};
   },
-  components: {
-    CharacterBoard,
-  },
+  components: {},
   metaInfo() {
     return {
       title: "MorseLearner - Learn morse code",
@@ -37,3 +71,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.prompt-row {
+  justify-content: center;
+  margin: 8% 0;
+}
+.prompt {
+  flex: 1 1 auto;
+  margin: 0 2%;
+}
+</style>

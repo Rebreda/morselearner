@@ -21,7 +21,7 @@
             </v-card-text>
 
             <v-card-actions>
-              <v-btn outlined text class="mx-auto"> Play </v-btn>
+              <v-btn outlined text class="mx-auto"> Play now </v-btn>
             </v-card-actions>
           </v-card>
 
@@ -41,7 +41,7 @@
               tones and easy to understand visuals.
             </v-card-text>
             <v-card-actions class="text-center">
-              <v-btn outlined text class="mx-auto"> Play </v-btn>
+              <v-btn outlined text class="mx-auto"> Learn more </v-btn>
             </v-card-actions>
           </v-card>
         </v-row>

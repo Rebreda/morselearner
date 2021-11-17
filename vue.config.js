@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/morselearner/',
+  // publicPath: '/morselearner/',
   transpileDependencies: [
     'vuetify'
   ]

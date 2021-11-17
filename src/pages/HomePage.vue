@@ -23,5 +23,17 @@ export default {
   components: {
     CharacterBoard,
   },
+  metaInfo() {
+    return {
+      title: "MorseLearner - Learn morse code",
+      meta: [
+        {
+          vmid: "Learn morse code easily",
+          name: "Learn morse code easily",
+          content: "Learn morse code easily",
+        },
+      ],
+    };
+  },
 };
 </script>

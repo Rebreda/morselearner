@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     playTone() {
-      const DIT = 0.1;
+      const DIT = 0.2;
       const DAH = DIT * 3;
 
       this.isPlaying = true;

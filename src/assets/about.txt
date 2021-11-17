@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Homenaje
+- Font Author: Copyright 2016 The Homenaje Project Authors (https://github.com/googlefonts/Homenaje), with Reserved Font Name 'Homenaje.
+- Font Source: http://fonts.gstatic.com/s/homenaje/v11/FwZY7-Q-xVAi_l-6Ld6A4sijpFu_.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))

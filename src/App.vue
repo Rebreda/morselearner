@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar>
+    <v-app-bar app>
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
       <v-toolbar-title>MorseLearner</v-toolbar-title>
 

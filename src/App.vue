@@ -6,7 +6,7 @@
           <img src="@/assets/favicon-32x32.png" />
         </v-app-bar-nav-icon>
       </router-link>
-      <v-toolbar-title>MorseLearner</v-toolbar-title>
+      <v-toolbar-title>Ditted.codes</v-toolbar-title>
 
       <v-spacer></v-spacer>
 

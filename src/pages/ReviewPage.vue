@@ -24,7 +24,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: "MorseLearner - Learn morse code",
+      title: "Ditted.codes - Learn morse code",
       meta: [
         {
           vmid: "Learn morse code easily",

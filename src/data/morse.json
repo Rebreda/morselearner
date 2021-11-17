@@ -1,44 +1,4 @@
 {
-    "0": {
-        "pattern": "-----",
-        "type": "number"
-    },
-    "1": {
-        "pattern": ".----",
-        "type": "number"
-    },
-    "2": {
-        "pattern": "..---",
-        "type": "number"
-    },
-    "3": {
-        "pattern": "...--",
-        "type": "number"
-    },
-    "4": {
-        "pattern": "....-",
-        "type": "number"
-    },
-    "5": {
-        "pattern": ".....",
-        "type": "number"
-    },
-    "6": {
-        "pattern": "-....",
-        "type": "number"
-    },
-    "7": {
-        "pattern": "--...",
-        "type": "number"
-    },
-    "8": {
-        "pattern": "---..",
-        "type": "number"
-    },
-    "9": {
-        "pattern": "----.",
-        "type": "number"
-    },
     "a": {
         "pattern": ".-",
         "type": "letter"
@@ -142,6 +102,46 @@
     "z": {
         "pattern": "--..",
         "type": "letter"
+    },
+    "0": {
+        "pattern": "-----",
+        "type": "number"
+    },
+    "1": {
+        "pattern": ".----",
+        "type": "number"
+    },
+    "2": {
+        "pattern": "..---",
+        "type": "number"
+    },
+    "3": {
+        "pattern": "...--",
+        "type": "number"
+    },
+    "4": {
+        "pattern": "....-",
+        "type": "number"
+    },
+    "5": {
+        "pattern": ".....",
+        "type": "number"
+    },
+    "6": {
+        "pattern": "-....",
+        "type": "number"
+    },
+    "7": {
+        "pattern": "--...",
+        "type": "number"
+    },
+    "8": {
+        "pattern": "---..",
+        "type": "number"
+    },
+    "9": {
+        "pattern": "----.",
+        "type": "number"
     },
     ".": {
         "pattern": ".-.-.-",

@@ -11,14 +11,16 @@
       <v-spacer></v-spacer>
 
       <v-tooltip bottom>
-        <v-btn icon @click="changeTheme">
-          <v-icon>mdi-theme-light-dark</v-icon>
-        </v-btn>
-        <span> Toggle dark and light mode </span>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon @click="changeTheme" v-bind="attrs" v-on="on">
+            <v-icon>mdi-theme-light-dark</v-icon>
+          </v-btn>
+        </template>
+        <span> Toggle dark mode </span>
       </v-tooltip>
 
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
+      <v-btn icon href="https://github.com/gabehab/morselearner">
+        <v-icon>mdi-github</v-icon>
       </v-btn>
     </v-app-bar>
 

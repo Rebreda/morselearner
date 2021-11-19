@@ -10,16 +10,15 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+      <v-tooltip bottom>
+        <v-btn icon @click="changeTheme">
+          <v-icon>mdi-theme-light-dark</v-icon>
+        </v-btn>
+        <span> Toggle dark and light mode </span>
+      </v-tooltip>
 
       <v-btn icon>
         <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -32,6 +31,11 @@ export default {
   name: "App",
   data() {
     return {};
+  },
+  methods: {
+    changeTheme() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    },
   },
 };
 </script>

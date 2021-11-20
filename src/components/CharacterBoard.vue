@@ -10,6 +10,7 @@
             :value="character[0]"
             v-bind="character[1]"
             :key="character[0]"
+            :style="{ minWidth: '300px' }"
           />
         </template>
       </v-slide-x-transition>

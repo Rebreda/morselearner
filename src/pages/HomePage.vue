@@ -4,7 +4,6 @@
       <v-container fluid>
         <v-row class="prompt-row">
           <v-card
-            disabled
             hover
             to="/challenge"
             class="prompt text-center py-10 px-2 my-2"

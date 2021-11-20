@@ -1,12 +1,12 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <v-app-bar app flat>
       <router-link to="/">
         <v-app-bar-nav-icon>
           <img src="@/assets/favicon-32x32.png" />
         </v-app-bar-nav-icon>
       </router-link>
-      <v-toolbar-title>Ditted.codes</v-toolbar-title>
+      <v-toolbar-title>ditted.codes</v-toolbar-title>
 
       <v-spacer></v-spacer>
 

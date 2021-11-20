@@ -2,7 +2,6 @@
   <v-hover>
     <v-card class="mx-2 my-2 letter">
       <v-card-text>
-        <div></div>
         <div class="text-center">
           <p class="text-h1 text--primary">
             {{ value }}
@@ -42,6 +41,14 @@ export default {
     value: String,
     pattern: String,
     type: String,
+    isCurrent: {
+      type: Boolean,
+      default: false,
+    },
+    showCharacter: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: () => {
     return {
@@ -83,8 +90,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .letter {
-  min-width: 300px;
-  max-width: 400px;
   flex: 1 1 auto;
 }
 </style>

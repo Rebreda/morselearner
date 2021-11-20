@@ -17,6 +17,9 @@ import CharacterCard from "../CharacterCard.vue";
 export default {
   components: { CharacterCard },
   props: {
+    current: {
+      type: String,
+    },
     characters: {
       type: Array,
     },

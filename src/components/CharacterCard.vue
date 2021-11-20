@@ -1,9 +1,9 @@
 <template>
   <v-hover>
-    <v-card class="mx-2 my-2 letter">
+    <v-card class="mx-2 my-2 letter" :color="isCurrent ? 'primary' : ''">
       <v-card-text>
         <div class="text-center">
-          <p class="text-h1 text--primary">
+          <p class="text-h1 text--primary" v-if="showCharacter">
             {{ value }}
           </p>
           <div class="text-h2 text--primary">
@@ -47,7 +47,7 @@ export default {
     },
     showCharacter: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   data: () => {

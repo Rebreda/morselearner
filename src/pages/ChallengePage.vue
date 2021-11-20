@@ -6,7 +6,9 @@
         <answer-input @answerChange="handleAnswer" />
         <v-btn> Generate Challenge </v-btn>
         <v-btn> Submit Answer </v-btn>
-        {{ answer }}
+        <p class="text-h1">
+          {{ answer }}
+        </p>
       </v-container>
     </v-main>
   </div>
@@ -40,6 +42,7 @@ export default {
   methods: {
     handleAnswer(e) {
       this.answer = e;
+      this.word[e.length-1] === e[e.length-1]
     },
     generateWord(chars) {
       return (Math.random() + 1)

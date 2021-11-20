@@ -64,14 +64,16 @@ export default {
       let synth = new Tone.Synth().toDestination();
       const arr = this.pattern.split("");
       let counter = 0;
+      //convert -/. to number, keep track of timing
       const mapped = arr.map((char) => {
-        counter += char === "-" ? DAH : DIT;
-        let t = { duration: char === "-" ? DAH : DIT, time: counter };
-        counter += DIT;
+        const val = char === "-" ? DAH : DIT;
+
+        let t = { duration: val, time: counter };
+        counter += DIT + val;
         return t;
       });
       let c = 0;
-      // eslint-disable-next-line no-unused-vars
+      let t = Tone.now();
       const seq = new Tone.Part((time, { duration, time: a }) => {
         c += 1;
         if (c === arr.length) {
@@ -79,7 +81,7 @@ export default {
           Tone.Transport.stop();
           seq.dispose();
         }
-        synth.triggerAttackRelease("B3", duration, time);
+        synth.triggerAttackRelease("C3", duration, t + a);
       }, mapped).start(0);
       Tone.Transport.start();
     },

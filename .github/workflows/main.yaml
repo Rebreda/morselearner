@@ -14,3 +14,7 @@ jobs:
           username: "gabehab"
           reponame: "morselearner"
           token: ${{ secrets.GITHUB_TOKEN }} # no need to change this line this is used to create the branch in your application repository
+      - name: Add CNAME file
+        run: |
+          touch CNAME
+          echo ditted.codes >> CNAME

@@ -32,8 +32,6 @@ export default {
   created() {
     this.chars = transformData(morse);
     this.word = this.generateWord(this.chars);
-    // this.chars = transformData(morse);
-    console.log("created", this.chars, this.word);
   },
   components: {
     CharacterSet,
@@ -42,14 +40,54 @@ export default {
   methods: {
     handleAnswer(e) {
       this.answer = e;
-      this.word[e.length-1] === e[e.length-1]
+      const ansLength = this.answer.length;
+      const reset = {
+        isCorrect: false,
+        isCurrent: true,
+        isAnswered: false,
+      };
+
+      if (ansLength < 1) {
+        this.$set(this.word, 0, { ...this.word[0], ...reset });
+        return;
+      }
+
+      const currentCharacter = this.answer[ansLength - 1];
+      const currentQuestion = this.word[ansLength - 1];
+      if (currentCharacter === currentQuestion.value) {
+        const t = {
+          ...currentQuestion,
+          isCorrect: true,
+          isCurrent: false,
+          isAnswered: true,
+        };
+        this.$set(this.word, ansLength - 1, t);
+      } else {
+        const t = {
+          ...currentQuestion,
+          isCorrect: false,
+          isCurrent: true,
+          isAnswered: true,
+        };
+        this.$set(this.word, ansLength - 1, t);
+      }
     },
     generateWord(chars) {
       return (Math.random() + 1)
         .toString(36)
         .substring(7)
         .split("")
-        .map((s) => chars[s]);
+        .map((s, i) => {
+          const questionCharacter = {
+            isAnswered: false,
+            isCorrect: false,
+            isCurrent: false,
+          };
+          if (i === 0) {
+            questionCharacter.isCurrent = true;
+          }
+          return { ...chars[s], ...questionCharacter };
+        });
     },
   },
   metaInfo() {

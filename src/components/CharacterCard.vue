@@ -1,13 +1,20 @@
 <template>
   <v-hover>
-    <v-card class="mx-2 my-2 letter" :color="isCurrent ? 'primary' : ''">
+    <v-card class="mx-2 my-2 letter" :color="hasClass">
       <v-card-text>
         <div class="text-center">
-          <p class="text-h1 text--primary" v-if="showCharacter">
-            {{ value }}
-          </p>
-          <div class="text-h2 text--primary">
-            {{ pattern }}
+          <div v-if="showCharacter">
+            <p class="text-h1 text--primary">
+              {{ value }}
+            </p>
+            <div class="text-h2 text--primary">
+              {{ pattern }}
+            </div>
+          </div>
+          <div v-else>
+            <div class="text-h1 text--primary">
+              {{ pattern }}
+            </div>
           </div>
         </div>
       </v-card-text>
@@ -45,6 +52,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    isCorrect: {
+      type: Boolean,
+      default: false,
+    },
+    isAnswered: {
+      type: Boolean,
+      default: false,
+    },
     showCharacter: {
       type: Boolean,
       default: true,
@@ -53,7 +68,16 @@ export default {
   data: () => {
     return {
       isPlaying: false,
+      // isClass: "",
     };
+  },
+  computed: {
+    hasClass() {
+      if (this.isCorrect && this.isAnswered) return "success";
+      if (!this.isCorrect && this.isAnswered) return "warning";
+      if (this.isCurrent) return "primary";
+      return "";
+    },
   },
   methods: {
     playTone() {

@@ -6,6 +6,10 @@
         :value="char.value"
         :pattern="char.pattern"
         :type="char.type"
+        :isCurrent="char.isCurrent"
+        :isCorrect="char.isCorrect"
+        :isAnswered="char.isAnswered"
+        :showCharacter="false"
       />
     </template>
   </v-slide-x-transition>
@@ -23,6 +27,9 @@ export default {
     characters: {
       type: Array,
     },
+  },
+  created() {
+    console.log(this.characters);
   },
 };
 </script>

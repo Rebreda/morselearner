@@ -37,7 +37,13 @@ export default {
   methods: {
     changeTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+      localStorage.isDarkMode = this.$vuetify.theme.dark;
     },
+  },
+  created() {
+    if (localStorage.isDarkMode === "true") {
+      this.$vuetify.theme.dark = !!localStorage.isDarkMode;
+    }
   },
 };
 </script>

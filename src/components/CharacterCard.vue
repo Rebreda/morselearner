@@ -18,12 +18,14 @@
           </div>
         </div>
       </v-card-text>
-      <v-card-actions>
+      <v-card-actions class="d-flex">
         <v-btn
+          outlined
           text
-          color="deep-purple accent-4"
+          color="secondary"
           @click="playTone"
           :disabled="isPlaying"
+          class="mr-2"
         >
           <span v-if="!isPlaying">
             <v-icon> mdi-play-circle </v-icon>
@@ -34,6 +36,20 @@
             Playing
           </span>
         </v-btn>
+
+        <div v-if="!showCharacter" class="ml-auto">
+          <v-tooltip bottom v-if="!isRevealed">
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn @click="revealAnswer" icon v-bind="attrs" v-on="on">
+                <v-icon> mdi-eye-outline </v-icon>
+              </v-btn>
+            </template>
+            <span> Click to see answer </span>
+          </v-tooltip>
+          <v-btn v-else text>
+            {{ value }}
+          </v-btn>
+        </div>
       </v-card-actions>
     </v-card>
   </v-hover>
@@ -68,7 +84,7 @@ export default {
   data: () => {
     return {
       isPlaying: false,
-      // isClass: "",
+      isRevealed: false,
     };
   },
   computed: {
@@ -80,6 +96,9 @@ export default {
     },
   },
   methods: {
+    revealAnswer() {
+      this.isRevealed = true;
+    },
     playTone() {
       const DIT = 0.2;
       const DAH = DIT * 3;

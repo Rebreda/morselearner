@@ -27,11 +27,13 @@ export default {
       word: [],
       chars: {},
       answer: "",
+      copy: []
     };
   },
   created() {
     this.chars = transformData(morse);
     this.word = this.generateWord(this.chars);
+    this.copy = this.word;
   },
   components: {
     CharacterSet,

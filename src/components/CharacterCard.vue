@@ -3,17 +3,23 @@
     <v-card class="mx-2 my-2 letter" :color="hasClass">
       <v-card-text>
         <div class="text-center">
-          <div v-if="showCharacter">
-            <p class="text-h1 text--primary">
+          <div>
+            <p class="text-h1 text--primary" v-if="showCharacter">
               {{ value }}
             </p>
-            <div class="text-h2 text--primary">
-              {{ pattern }}
-            </div>
-          </div>
-          <div v-else>
-            <div class="text-h1 text--primary">
-              {{ pattern }}
+            <div class="d-inline-flex text-center">
+              <p
+                v-for="(char, index) in pattern"
+                :key="char + index"
+                :class="[
+                  index === currentCharacterIndex && isPlaying
+                    ? 'text-secondary text-decoration-underline'
+                    : 'text--primary',
+                  showCharacter ? 'text-h2' : 'text-h1',
+                ]"
+              >
+                {{ char }}
+              </p>
             </div>
           </div>
         </div>
@@ -26,13 +32,14 @@
           @click="playTone"
           :disabled="isPlaying"
           class="mr-2"
+          width="140px"
         >
           <span v-if="!isPlaying">
             <v-icon> mdi-play-circle </v-icon>
             Play Tone
           </span>
           <span v-else>
-            <v-icon> mdi-play-speaker </v-icon>
+            <v-icon> mdi-volume-high </v-icon>
             Playing
           </span>
         </v-btn>
@@ -85,6 +92,7 @@ export default {
     return {
       isPlaying: false,
       isRevealed: false,
+      currentCharacterIndex: 0,
     };
   },
   computed: {
@@ -118,12 +126,16 @@ export default {
       let c = 0;
       let t = Tone.now();
       const seq = new Tone.Part((time, { duration, time: a }) => {
+        this.currentCharacterIndex = c;
         c += 1;
         if (c === arr.length) {
           this.isPlaying = false;
           Tone.Transport.stop();
           seq.dispose();
         }
+
+        // Draw.schedule takes a callback and a time to invoke the callback
+
         synth.triggerAttackRelease("C3", duration, t + a);
       }, mapped).start(0);
       Tone.Transport.start();
@@ -136,5 +148,9 @@ export default {
 <style scoped>
 .letter {
   flex: 1 1 auto;
+}
+
+.white {
+  color: white;
 }
 </style>

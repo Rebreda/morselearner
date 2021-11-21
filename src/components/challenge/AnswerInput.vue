@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     emitAnswer(e) {
-      console.log("asn", e);
+        console.log('asn',);
       this.$emit("answerChange", e);
     },
   },

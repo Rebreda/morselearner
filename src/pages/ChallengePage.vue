@@ -4,8 +4,8 @@
       <v-container>
         <character-set :characters="word" class="my-2" />
         <answer-input @answerChange="handleAnswer" />
-        <v-btn> Generate Challenge </v-btn>
-        <v-btn> Submit Answer </v-btn>
+        <!-- <v-btn> Generate Challenge </v-btn>
+        <v-btn> Submit Answer </v-btn> -->
         <p class="text-h1">
           {{ answer }}
         </p>
@@ -27,7 +27,7 @@ export default {
       word: [],
       chars: {},
       answer: "",
-      copy: []
+      copy: [],
     };
   },
   created() {

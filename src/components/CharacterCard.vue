@@ -1,9 +1,9 @@
 <template>
   <v-hover>
-    <v-card class="mx-2 my-2 letter" :color="hasClass">
+    <v-card class="mx-2 my-2 letter d-flex d-md-block" :color="hasClass">
       <v-card-text>
         <div class="text-center">
-          <div>
+          <div class="d-flex d-md-block">
             <p class="text-h1 text--primary" v-if="showCharacter">
               {{ value }}
             </p>
@@ -28,7 +28,6 @@
         <v-btn
           outlined
           text
-          color="secondary"
           @click="playTone"
           :disabled="isPlaying"
           class="mr-2"
@@ -150,5 +149,9 @@ export default {
 
 .white {
   color: white;
+}
+.d-flex {
+  justify-content: center;
+  align-items: center;
 }
 </style>

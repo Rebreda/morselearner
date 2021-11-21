@@ -1,8 +1,8 @@
 <template>
   <div class="character-set d-flex">
     <v-text-field
-      label="Outlined"
-      placeholder="Placeholder"
+      label="Answers"
+      placeholder="Write what you see & hear here"
       outlined
       @input="emitAnswer"
     ></v-text-field>

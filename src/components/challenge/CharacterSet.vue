@@ -30,3 +30,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.character-set {
+  overflow-x: auto;
+}
+</style>

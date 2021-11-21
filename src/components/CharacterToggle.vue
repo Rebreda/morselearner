@@ -1,7 +1,12 @@
 <template>
   <div>
     <p class="text">Filter by:</p>
-    <v-btn-toggle v-model="characterToggle" v-on:change="onToggle" multiple>
+    <v-btn-toggle v-model="characterToggle" v-on:change="onToggle">
+      <v-btn>
+        <v-icon>mdi-eye</v-icon>
+        <span class="hidden-sm-and-down"> All </span>
+      </v-btn>
+
       <v-btn>
         <v-icon>mdi-alphabetical-variant</v-icon>
         <span class="hidden-sm-and-down"> Letters </span>
@@ -27,7 +32,7 @@ export default {
   },
   data: () => {
     return {
-      characterToggle: [],
+      characterToggle: 0,
     };
   },
 };

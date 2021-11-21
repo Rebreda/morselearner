@@ -31,7 +31,7 @@ export default {
     characters() {
       return Object.entries(this.letters).filter((s) => {
         let type = s[1].type;
-        if (this.activeFilter.length > 0) {
+        if (this.activeFilter !== "all") {
           if (this.activeFilter.includes(type)) {
             return s;
           }
@@ -43,16 +43,14 @@ export default {
   },
   methods: {
     handleToggle(e) {
-      this.activeFilter = e.map((s) => {
-        return this.filterType[s];
-      });
+      this.activeFilter = this.filterType[e];
     },
     handleSearch() {},
   },
   data: function () {
     return {
-      filterType: ["letter", "number", "punctuation"],
-      activeFilter: [],
+      filterType: ["all", "letter", "number", "punctuation"],
+      activeFilter: "all",
     };
   },
 };

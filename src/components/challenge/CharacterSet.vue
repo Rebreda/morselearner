@@ -28,8 +28,5 @@ export default {
       type: Array,
     },
   },
-  created() {
-    console.log(this.characters);
-  },
 };
 </script>

@@ -134,8 +134,6 @@ export default {
           seq.dispose();
         }
 
-        // Draw.schedule takes a callback and a time to invoke the callback
-
         synth.triggerAttackRelease("C3", duration, t + a);
       }, mapped).start(0);
       Tone.Transport.start();

@@ -2,9 +2,12 @@
   <div class="character-set d-flex">
     <v-text-field
       label="Answers"
+      class="answer"
       placeholder="Write what you see & hear here"
-      outlined
       @input="emitAnswer"
+      solo
+      single-line
+      height="120px"
     ></v-text-field>
   </div>
 </template>
@@ -23,3 +26,6 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+</style>

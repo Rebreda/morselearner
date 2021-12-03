@@ -1,8 +1,7 @@
 <template>
   <v-slide-x-transition class="character-set d-flex" group tag="div">
-    <template v-for="(char, index) in characters">
+    <div v-for="(char, index) in characters" :key="char.value + index">
       <character-card
-        :key="char.value + index"
         :value="char.value"
         :pattern="char.pattern"
         :type="char.type"
@@ -10,8 +9,9 @@
         :isCorrect="char.isCorrect"
         :isAnswered="char.isAnswered"
         :showCharacter="false"
+        v-if="char.isAnswered || char.isCurrent"
       />
-    </template>
+    </div>
   </v-slide-x-transition>
 </template>
 

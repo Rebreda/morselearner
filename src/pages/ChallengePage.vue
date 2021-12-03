@@ -57,6 +57,7 @@ export default {
       const currentCharacter = this.answer[ansLength - 1];
       const currentQuestion = this.word[ansLength - 1];
       if (currentCharacter === currentQuestion.value) {
+        let nextQ = this.word[ansLength];
         const t = {
           ...currentQuestion,
           isCorrect: true,
@@ -64,6 +65,7 @@ export default {
           isAnswered: true,
         };
         this.$set(this.word, ansLength - 1, t);
+        this.$set(this.word, ansLength, { ...nextQ, isCurrent: true });
       } else {
         const t = {
           ...currentQuestion,

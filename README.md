@@ -1,4 +1,8 @@
-# morselearner
+# Morse Code Learner
+ 
+Learn morse code at [ditted.codes](https://ditted.codes).
+
+![Ditted codes screenshot](/screenshot.png,"Ditted.codes")
 
 ## Project setup
 ```
